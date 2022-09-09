@@ -1,0 +1,168 @@
+<style>
+    /* 隐藏底部信息 */
+    .footer span,.footer a:nth-of-type(1){
+        display:none;
+    }
+    .footer span,.footer a:nth-of-type(2){
+        display:none;
+    }
+    /* 背景图片 */
+    .chakra-ui-light{
+        /* 
+            樱花：https://www.dmoe.cc
+            夏沫：https://cdn.seovx.com
+            搏天：https://.btstu.cn/doc/sjbz.php
+            姬长信：https://github.com/insoxin/API
+            小歪：https://.ixiaowai.cn
+            保罗：https://.paugram.com
+            墨天逸：https://.mtyqx.cn
+            岁月小筑：https://img.xjh.me
+            东方Project：https://img.paulzzh.com
+        */
+        background-image: url("https://cdn.seovx.com/d/?mom=302") !important;
+        background-repeat:no-repeat;background-size:cover;background-attachment:fixed;background-position-x:center;
+    }
+    /* 设置半透明 */
+    .chakra-ui-dark .nav,
+    .chakra-ui-dark .footer-box {
+        background-color: rgba(45, 55, 72, 1) !important
+    }
+    /* 设置半透明 */
+    .chakra-ui-light .nav,
+    .chakra-ui-light .main-box,
+    .chakra-ui-light .readme-box,
+    .chakra-ui-light .footer-box {
+        background-color: rgba(255, 255, 255, .8) !important
+    }
+    /* 设置圆角 */
+    .nav,
+    .main-box,
+    .readme-box,
+    .footer-box {
+        border-radius: 15px !important;
+    }
+    .foot-time{
+        font-size:15px;
+    }
+    .foot-link{
+        font-size:13px;
+    }
+</style>
+<link href="//lib.baomitu.com/font-awesome/6.1.2/css/all.css" rel="stylesheet">
+<script src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js" charset="utf-8"></script> <!-- 1.12.4 -->
+
+<div class="index-box css-1jif775" style="margin-top:-30px;">
+    <div class="chakra-stack footer-box css-wlpsqb" style="padding:10px;">
+        <div class="chakra-stack css-owjkmg">
+            <div class="foot-img">
+                <img src="https://count.getloli.com/get/@nas" alt=":name" />
+            </div>
+            <div class="foot-time">
+                <strong><span class="fas fa-clock"></span> 本站已稳定运行：</strong>
+                <strong id="day_show">0天</strong>
+                <strong id="hour_show">00时</strong>
+                <strong id="minute_show">00分</strong>
+                <strong id="second_show">00秒</strong>
+            </div>
+            <div class="foot-link">
+                <strong>
+                    <span class="fas fa-copyright"></span>
+                    <a href="/@manage" target="_blank" rel="noopener noreferrer" class="chakra-link line1 css-f4h6uy">Honey</a>
+                    <span>|</span>
+                    <span class="fas fa-shield-alt"></span>
+                    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="chakra-link line1 css-f4h6uy"> </a> 
+                      <!--</a>前面可以添加网站备案信息 -->
+                    <span>|</span>
+                    <span class="fab fa-github"></span>
+                    <!-- 注意：如需修改，请保留作者版权信息 -->
+                    由<a href="https://github.com/alist-org/alist" target="_blank" rel="noopener noreferrer" class="chakra-link line1 css-f4h6uy">Alist</a>驱动
+                </strong>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<script>
+    function  timestamp(){
+        let outcome = Math.round(new Date().getTime()/1000).toString();
+        return outcome
+    }
+    function timer(intDiff) {
+        myTimer = window.setInterval(function () {
+            var day = 0,
+                hour = 0,
+                minute = 0,
+                second = 0;//时间默认值
+            if (intDiff > 0) {
+                day = Math.floor(intDiff / (60 * 60 * 24));
+                hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+            }
+            if (hour <= 9) hour = "0" + hour;
+            if (minute <= 9) minute = "0" + minute;
+            if (second <= 9) second = "0" + second;
+            
+            $('#day_show').html(day + '天');
+            $('#hour_show').html(hour + '时');
+            $('#minute_show').html(minute + '分');
+            $('#second_show').html(second + '秒');
+            if (day <= 0 && hour <= 0 && minute <= 0 && second <= 0) {
+                clearInterval(myTimer);
+            }
+            intDiff++;
+        }, 1000);
+    }
+    // 页面加载完成后执行
+    $(document).ready(function(){
+        var times = timestamp(); // 现行时间戳
+        var mytime = 1660717121; // 设置安装时间
+        timer(times - mytime);
+    });
+</script>
+<script>
+        (function () {
+            var a_idx = 0;
+            window.onclick = function (event) {
+                var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤",
+                    "❤敬业❤", "❤诚信❤", "❤友善❤");
+ 
+                var heart = document.createElement("b"); //创建b元素
+                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+ 
+                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                a_idx = (a_idx + 1) % a.length;
+                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+ 
+                var f = 16, // 字体大小
+                    x = event.clientX - f / 2, // 横坐标
+                    y = event.clientY - f, // 纵坐标
+                    c = randomColor(), // 随机颜色
+                    a = 1, // 透明度
+                    s = 1.2; // 放大缩小
+ 
+                var timer = setInterval(function () { //添加定时器
+                    if (a <= 0) {
+                        document.body.removeChild(heart);
+                        clearInterval(timer);
+                    } else {
+                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                            s + ");";
+ 
+                        y--;
+                        a -= 0.016;
+                        s += 0.002;
+                    }
+                }, 15)
+ 
+            }
+            // 随机颜色
+            function randomColor() {
+ 
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+ 
+            }
+        }());
+    </script>
